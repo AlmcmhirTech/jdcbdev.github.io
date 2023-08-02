@@ -462,15 +462,19 @@
 <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Custom Script --> 
 <script src="js/theme.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
 <script type="text/javascript">
   (function () {
-    emailjs.init("service_1phnb3f");
+    emailjs.init("tQZLGPCIMcUaVVLUj");
   })();
 </script>
 <script type="text/javascript">
   function sendEmail() {
     const templateParams = {
       to_email: "jaydie.ballaho@gmail.com",
+      from_email: $('#email'),
       from_name: $('#name').val(),
       message: $('#form-message').val(),
     };
