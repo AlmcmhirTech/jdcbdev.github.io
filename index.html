@@ -80,7 +80,7 @@
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#services">Services</a></li>
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#resume">Resume</a></li>
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
-              <li class="nav-item"><a class="nav-link smooth-scroll" href="#testimonial">Client</a></li>
+              <li class="nav-item d-none"><a class="nav-link smooth-scroll" href="#testimonial">Client</a></li>
               <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -230,7 +230,7 @@
             </div>
           </div>
         </div>
-        <p class="text-center mt-5 wow fadeInUp"><a href="#" class="btn btn-outline-dark shadow-none rounded-0">Download CV</a></p>
+        <p class="text-center mt-5 wow fadeInUp d-none"><a href="#" class="btn btn-outline-dark shadow-none rounded-0">Download CV</a></p>
       </div>
     </section>
     <!-- Resume end --> 
@@ -380,8 +380,8 @@
             <address class="text-4">
             Pasonanca, Zamboanga City, Philippines.
             </address>
-            <h3 class="text-5 fw-600">Call:</h3>
-            <p class="text-4">(+63) 965 649 9005</p>
+            <h3 class="text-5 fw-600">Email:</h3>
+            <p class="text-4">jaydie.ballaho@gmail.com</p>
             <ul class="social-icons social-icons-lg justify-content-center justify-content-lg-start mt-5">
               <li class="social-icons-facebook"><a data-bs-toggle="tooltip" href="https://www.facebook.com/jaydee.ballaho" target="_blank" title="" data-bs-original-title="Facebook"><i class="fab fa-facebook white-text"></i></a></li>
               <li class="social-icons-github"><a data-bs-toggle="tooltip" href="https://github.com/jdcbdev" target="_blank" title="" data-bs-original-title="GitHub"><i class="fab fa-github white-text"></i></a></li>
@@ -390,7 +390,7 @@
           <div class="col-lg-6 ms-auto mt-5 mt-lg-0 wow fadeInUp" data-wow-delay="0.3s">
             <h2 class="text-10 fw-600 text-center text-lg-start mb-5">Estimate your Project?</h2>
             <!-- Contact Form -->
-            <form id="contact-form" class="form-border" action="php/mail.php" method="post">
+            <form id="contact-form" class="form-border">
               <div class="row g-4">
                 <div class="col-12">
                   <label class="form-label" for="name">What is Your Name:</label>
@@ -405,7 +405,7 @@
                   <textarea id="form-message" name="form-message" class="form-control py-1" rows="4" required ></textarea>
                 </div>
                 <div class="col-12 text-center text-lg-start">
-                  <button id="submit-btn" class="btn btn-dark rounded-0" type="submit">Send <span class="ms-3"><i class="fas fa-arrow-right"></i></span></button>
+                  <button id="submit-btn" class="btn btn-dark rounded-0" onclick="sendEmail()">Send <span class="ms-3"><i class="fas fa-arrow-right"></i></span></button>
                 </div>
               </div>
             </form>
@@ -462,5 +462,27 @@
 <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Custom Script --> 
 <script src="js/theme.js"></script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init("service_1phnb3f");
+  })();
+</script>
+<script type="text/javascript">
+  function sendEmail() {
+    const templateParams = {
+      to_email: "jaydie.ballaho@gmail.com",
+      from_name: $('#name').val(),
+      message: $('#form-message').val(),
+    };
+
+    emailjs.send("service_1phnb3f", "template_3v61vqs", templateParams)
+      .then((response) => {
+        console.log("Email sent:", response);
+      }, (error) => {
+        console.log("Error sending email:", error);
+      });
+  }
+</script>
+
 </body>
 </html>
