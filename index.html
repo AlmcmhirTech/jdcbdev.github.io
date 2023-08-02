@@ -405,7 +405,7 @@
                   <textarea id="form-message" name="form-message" class="form-control py-1" rows="4" required ></textarea>
                 </div>
                 <div class="col-12 text-center text-lg-start">
-                  <button id="submit-btn" class="btn btn-dark rounded-0" onclick="sendEmail()">Send <span class="ms-3"><i class="fas fa-arrow-right"></i></span></button>
+                  <button id="submit-btn-1" class="btn btn-dark rounded-0" onclick="sendEmail()">Send <span class="ms-3"><i class="fas fa-arrow-right"></i></span></button>
                 </div>
               </div>
             </form>
@@ -478,10 +478,11 @@
       from_name: $('#name').val(),
       message: $('#form-message').val(),
     };
-
+    $('#submit-btn-1').prop('disabled', true);
     emailjs.send("service_1phnb3f", "template_3v61vqs", templateParams)
       .then((response) => {
         console.log("Email sent:", response);
+        $('#submit-btn-1').prop('disabled', false);
       }, (error) => {
         console.log("Error sending email:", error);
       });
