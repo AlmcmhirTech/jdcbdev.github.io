@@ -483,6 +483,9 @@
       .then((response) => {
         console.log("Email sent:", response);
         $('#submit-btn-1').prop('disabled', false);
+        $('#email').val('');
+        $('#name').val('');
+        $('#form-message').val('')
       }, (error) => {
         console.log("Error sending email:", error);
       });
