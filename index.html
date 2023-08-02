@@ -390,7 +390,7 @@
           <div class="col-lg-6 ms-auto mt-5 mt-lg-0 wow fadeInUp" data-wow-delay="0.3s">
             <h2 class="text-10 fw-600 text-center text-lg-start mb-5">Estimate your Project?</h2>
             <!-- Contact Form -->
-            <form id="contact-form" class="form-border">
+            <form id="contact-form" method="POST" class="form-border">
               <div class="row g-4">
                 <div class="col-12">
                   <label class="form-label" for="name">What is Your Name:</label>
@@ -405,7 +405,7 @@
                   <textarea id="form-message" name="form-message" class="form-control py-1" rows="4" required ></textarea>
                 </div>
                 <div class="col-12 text-center text-lg-start">
-                  <button id="submit-btn-1" class="btn btn-dark rounded-0" onclick="sendEmail()">Send <span class="ms-3"><i class="fas fa-arrow-right"></i></span></button>
+                  <button id="submit-btn-1" class="btn btn-dark rounded-0" type="submit">Send <span class="ms-3"><i class="fas fa-arrow-right"></i></span></button>
                 </div>
               </div>
             </form>
@@ -491,6 +491,13 @@
       });
   }
 </script>
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('form#contact-form').submit(function(e){
+      e.preventDefault();
+      sendEmail();
+    })
+  });
+</script>
 </body>
 </html>
