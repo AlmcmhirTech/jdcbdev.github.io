@@ -474,7 +474,7 @@
   function sendEmail() {
     const templateParams = {
       to_email: "jaydie.ballaho@gmail.com",
-      from_email: $('#email'),
+      from_email: $('#email').val(),
       from_name: $('#name').val(),
       message: $('#form-message').val(),
     };
